@@ -1,0 +1,25 @@
+﻿[
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+      "src/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "src/js/site.js",
+      "src/js/signalr/dist/browser/signalr.js",
+      "src/js/signalr-base.js",
+      "src/js/canvas-drawing.js",
+      "src/js/dice-roll.js",
+      "src/js/initiative-roll.js",
+      "src/js/tabs.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]
