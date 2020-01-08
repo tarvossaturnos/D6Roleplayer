@@ -1,0 +1,16 @@
+﻿form {
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+    form {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+.form-control {
+    min-width: 75px;
+}

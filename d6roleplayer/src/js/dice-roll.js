@@ -29,7 +29,7 @@ connection.on("UpdateDiceRolls", function (username, message, rolls, resultMessa
     li.append(actionDiv);
     li.appendChild(resultDiv);
 
-    var list = document.getElementById("messagesList");
+    var list = document.getElementById("diceRolls");
     list.insertBefore(li, list.childNodes[0]);
 });
 
