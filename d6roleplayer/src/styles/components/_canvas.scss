@@ -1,5 +1,9 @@
+@import '../themes/theme';
+
 #canvas {
-    width: 50%;
+    border: solid 2px $primaryColor;  
+    width: 75%;
+    height: 600px;
 }
 
 .drawing-area {

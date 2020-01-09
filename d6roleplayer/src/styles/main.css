@@ -23,7 +23,9 @@
 }
 
 #canvas {
-  width: 50%;
+  border: solid 2px indianred;
+  width: 75%;
+  height: 600px;
 }
 
 .drawing-area {

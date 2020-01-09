@@ -2,17 +2,8 @@
 
 var canvas,
     context,
-    colorBlack = "#000000",
-    colorGrey = "#4b4b4b",
-    colorBlue = "#3366ff",
-    colorGreen = "#30ff59",
-    colorYellow = "#fffb00",
-    colorRed = "#ff0000",
-    colorOrange = "#ff7d40",
-    colorPink = "#ff40df",
-    colorWhite = "#ffffff",
     paint = false,
-    curColor = colorBlack,
+    curColor = '#000000',
     clickX = [],
     clickY = [],
     clickColor = [],
@@ -20,20 +11,10 @@ var canvas,
     prevClickX = [],
     prevClickY = [],
     prevClickColor = [],
-    prevClickDrag = [],
-    canvasWidth = 600,
-    canvasHeight = 600,
-    mediumStartX = 18,
-    mediumStartY = 19,
-    mediumImageWidth = 93,
-    mediumImageHeight = 24,
-    drawingAreaX = 111,
-    drawingAreaY = 11,
-    drawingAreaWidth = 450,
-    drawingAreaHeight = 550;
+    prevClickDrag = [];
 
-document.addEventListener("DOMContentLoaded", function () {
-    init();
+window.addEventListener("load", function () {
+    initCanvas();
 });
 
 connection.on("UpdateDrawing", function (x, y, color, drag) {
@@ -84,115 +65,34 @@ document.getElementById("resetDrawing").addEventListener("click", function (even
 
 // Clears the canvas.
 var clearCanvas = function () {
-
-    context.clearRect(0, 0, canvasWidth, canvasHeight);
+    context.clearRect(0, 0, canvas.width, canvas.height);
 };
 
-// Redraws the canvas.
 var redraw = function () {
-
-    var locX,
-        locY,
-        radius,
-        i,
-        selected;
-
-    var drawMarker = function (x, y, color) {
-
-        context.beginPath();
-        context.arc(x + 10, y + 24, 10, 0, 2 * Math.PI);
-        context.closePath();
-        context.fillStyle = color;
-        context.fill();
-    };
-
-    var drawEraser = function (x, y) {
-
-        context.beginPath();
-        context.arc(x + 10, y + 24, 10, 0, 2 * Math.PI);
-        context.stroke();
-    };
+    var radius;
+    var i;
 
     clearCanvas();
 
-    selected = (curColor === colorBlack);
-    locX = selected ? 18 : 52;
-    locY = 10;
-    drawMarker(locX, locY, colorBlack);
-
-    selected = (curColor === colorGrey);
-    locX = selected ? 18 : 52;
-    locY += mediumImageHeight;
-    drawMarker(locX, locY, colorGrey);
-
-    selected = (curColor === colorBlue);
-    locX = selected ? 18 : 52;
-    locY += mediumImageHeight;
-    drawMarker(locX, locY, colorBlue);
-
-    selected = (curColor === colorGreen);
-    locX = selected ? 18 : 52;
-    locY += mediumImageHeight;
-    drawMarker(locX, locY, colorGreen);
-
-    selected = (curColor === colorYellow);
-    locX = selected ? 18 : 52;
-    locY += mediumImageHeight;
-    drawMarker(locX, locY, colorYellow);
-
-    selected = (curColor === colorRed);
-    locX = selected ? 18 : 52;
-    locY += mediumImageHeight;
-    drawMarker(locX, locY, colorRed);
-
-    selected = (curColor === colorOrange);
-    locX = selected ? 18 : 52;
-    locY += mediumImageHeight;
-    drawMarker(locX, locY, colorOrange);
-
-    selected = (curColor === colorPink);
-    locX = selected ? 18 : 52;
-    locY += mediumImageHeight;
-    drawMarker(locX, locY, colorPink);
-
-    selected = (curColor === colorWhite);
-    locX = selected ? 18 : 52;
-    locY += mediumImageHeight;
-    drawEraser(locX, locY);
-
-    // Draw the canvas.
-    context.beginPath();
-    context.rect(drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
-    context.strokeStyle = "#708090";
-    context.stroke();
-
-    // Keep the drawing in the drawing area.
-    context.save();
-    context.beginPath();
-    context.rect(drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
-    context.clip();
-
-    // For each point drawn.
+    // For each point stored in the array.
     for (i = 0; i < clickX.length; i += 1) {
-
-        // Set the drawing path.
         context.beginPath();
 
-        // If dragging then draw a line between the two points.
+        // Dragging.
         if (clickDrag[i] && i) {
             context.moveTo(clickX[i - 1], clickY[i - 1]);
         } else {
-            // The x position is moved over one pixel so a circle even if not dragging.
+            // Single click.
             context.moveTo(clickX[i] - 1, clickY[i]);
         }
 
         context.lineTo(clickX[i], clickY[i]);
         context.strokeStyle = clickColor[i];
 
-        if (clickColor[i] == colorWhite) {
-            radius = 35;
-        } else {
+        if (clickColor[i] == "#ffffff") {
             radius = 5;
+        } else {
+            radius = 1;
         }
 
         context.lineCap = "round";
@@ -206,7 +106,6 @@ var redraw = function () {
     context.globalAlpha = 1;
 };
 
-// Adds a point to the drawing array.
 var addClick = function (x, y, dragging) {
     clickX.push(x);
     clickY.push(y);
@@ -219,52 +118,21 @@ var addClick = function (x, y, dragging) {
     prevClickDrag.push(dragging);
 };
 
-// Add mouse and touch event listeners to the canvas.
 var createUserEvents = function () {
-
     var press = function (e) {
-        // Mouse down location.
-        var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft;
-        var mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
-
-        if (mouseX < drawingAreaX) { // Left of the drawing area.
-            if (mouseX > mediumStartX) {
-                if (mouseY > mediumStartY && mouseY < mediumStartY + mediumImageHeight) {
-                    curColor = colorBlack;
-                } else if (mouseY > mediumStartY + mediumImageHeight && mouseY < mediumStartY + mediumImageHeight * 2) {
-                    curColor = colorGrey;
-                } else if (mouseY > mediumStartY + mediumImageHeight * 2 && mouseY < mediumStartY + mediumImageHeight * 3) {
-                    curColor = colorBlue;
-                } else if (mouseY > mediumStartY + mediumImageHeight * 3 && mouseY < mediumStartY + mediumImageHeight * 4) {
-                    curColor = colorGreen;
-                } else if (mouseY > mediumStartY + mediumImageHeight * 4 && mouseY < mediumStartY + mediumImageHeight * 5) {
-                    curColor = colorYellow;
-                } else if (mouseY > mediumStartY + mediumImageHeight * 5 && mouseY < mediumStartY + mediumImageHeight * 6) {
-                    curColor = colorRed;
-                } else if (mouseY > mediumStartY + mediumImageHeight * 6 && mouseY < mediumStartY + mediumImageHeight * 7) {
-                    curColor = colorOrange;
-                } else if (mouseY > mediumStartY + mediumImageHeight * 7 && mouseY < mediumStartY + mediumImageHeight * 8) {
-                    curColor = colorPink;
-                } else if (mouseY > mediumStartY + mediumImageHeight * 8 && mouseY < mediumStartY + mediumImageHeight * 9) {
-                    curColor = colorWhite;
-                }
-            }
-        }
-
+        var mousePos = getMousePos(e);
         paint = true;
-        addClick(mouseX, mouseY, false);
+        addClick(mousePos.x, mousePos.y, false);
         redraw();
     };
 
     var drag = function (e) {
-
-        var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft,
-            mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
-
         if (paint) {
-            addClick(mouseX, mouseY, true);
+            var mousePos = getMousePos(e);
+            addClick(mousePos.x, mousePos.y, true);
             redraw();
         }
+
         // Prevent the whole page from dragging if on mobile.
         e.preventDefault();
     };
@@ -288,29 +156,24 @@ var createUserEvents = function () {
         paint = false;
     };
 
-    // Add mouse event listeners to canvas element.
     canvas.addEventListener("mousedown", press, false);
     canvas.addEventListener("mousemove", drag, false);
     canvas.addEventListener("mouseup", release);
     canvas.addEventListener("mouseout", cancel, false);
 
-    // Add touch event listeners to canvas element.
     canvas.addEventListener("touchstart", press, false);
     canvas.addEventListener("touchmove", drag, false);
     canvas.addEventListener("touchend", release, false);
     canvas.addEventListener("touchcancel", cancel, false);
 };
 
-// Creates a canvas element, loads images, adds events, and draws the canvas for the first time.
-var init = function () {
-
+var initCanvas = function () {
     canvas = document.createElement('canvas');
-    canvas.setAttribute('height', canvas.width);
     canvas.setAttribute('id', 'canvas');
     document.getElementById('canvasDiv').appendChild(canvas);
 
-    canvasWidth = canvas.width;
-    canvasHeight = canvas.height;
+    canvas.width = 600;
+    canvas.height = 600;
 
     if (typeof G_vmlCanvasManager !== "undefined") {
         canvas = G_vmlCanvasManager.initElement(canvas);
@@ -319,5 +182,18 @@ var init = function () {
     context = canvas.getContext("2d");
 
     redraw();
-    createUserEvents();
+    createUserEvents(); 
 };
+
+function getMousePos(e) {
+
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: Math.round((e.clientX - rect.left) / (rect.right - rect.left) * canvas.width),
+        y: Math.round((e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height)
+    };
+}
+
+function selectColor(color) {
+    curColor = color;
+}
