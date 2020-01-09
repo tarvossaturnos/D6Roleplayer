@@ -186,11 +186,10 @@ var initCanvas = function () {
 };
 
 function getMousePos(e) {
-
     var rect = canvas.getBoundingClientRect();
     return {
-        x: Math.round((e.clientX - rect.left) / (rect.right - rect.left) * canvas.width),
-        y: Math.round((e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height)
+        x: Math.round(((e.changedTouches ? e.changedTouches[0].clientX : e.clientX) - rect.left) / (rect.right - rect.left) * canvas.width),
+        y: Math.round(((e.changedTouches ? e.changedTouches[0].clientY : e.clientY) - rect.top) / (rect.bottom - rect.top) * canvas.height)
     };
 }
 
