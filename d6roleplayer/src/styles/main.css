@@ -22,6 +22,10 @@
   background-color: lightgray;
 }
 
+#canvas {
+  width: 50%;
+}
+
 .drawing-area {
   text-align: center;
 }

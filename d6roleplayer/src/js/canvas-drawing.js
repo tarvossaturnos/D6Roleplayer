@@ -305,10 +305,12 @@ var createUserEvents = function () {
 var init = function () {
 
     canvas = document.createElement('canvas');
-    canvas.setAttribute('width', canvasWidth);
-    canvas.setAttribute('height', canvasHeight);
+    canvas.setAttribute('height', canvas.width);
     canvas.setAttribute('id', 'canvas');
     document.getElementById('canvasDiv').appendChild(canvas);
+
+    canvasWidth = canvas.width;
+    canvasHeight = canvas.height;
 
     if (typeof G_vmlCanvasManager !== "undefined") {
         canvas = G_vmlCanvasManager.initElement(canvas);
