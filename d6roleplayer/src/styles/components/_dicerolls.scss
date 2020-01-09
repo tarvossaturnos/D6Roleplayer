@@ -3,29 +3,6 @@
     margin-bottom: 10px;
 }
 
-.dice-input-field {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right: 10px;
-}
-
-.dice-rolls {
-    min-width: 75px;
-    margin-left: 195px;
-    margin-right: 140px;
-    padding: 0px;
-    list-style: none;
-    text-align: left;
-    color: slategrey;
-}
-
-@media only screen and (max-width: 768px) {
-    .dice-rolls {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-}
-
 .roll-succes {
     color: forestgreen;
     font-size: 22px;

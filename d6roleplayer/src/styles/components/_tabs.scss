@@ -30,3 +30,26 @@
     padding-bottom: 20px;
     border-top: none;
 }
+
+.tab-interaction {
+    min-width: 75px;
+    color: $secondaryColor;
+    padding: 0px;
+    li {
+        list-style: none;
+        text-align: left;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .tab-interaction {
+        margin-left: 195px;
+        margin-right: 195px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .tab-interaction {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

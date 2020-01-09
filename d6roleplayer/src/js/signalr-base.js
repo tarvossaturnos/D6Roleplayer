@@ -1,4 +1,6 @@
-﻿const params = new URLSearchParams(window.location.search);
+﻿"use strict";
+
+const params = new URLSearchParams(window.location.search);
 const id = params.get('sessionId');
 var connection = new signalR.HubConnectionBuilder().withUrl(`/diceRollHub?sessionId=${id}`).build();
 
