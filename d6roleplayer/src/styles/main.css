@@ -22,42 +22,21 @@
   background-color: lightgray;
 }
 
-#canvas {
-  border: solid 2px indianred;
-  width: 75%;
-  height: 600px;
+.btn-canvas {
+  min-width: 30px;
+  min-height: 30px;
+  color: white;
 }
 
-.drawing-area {
-  text-align: center;
+#canvas {
+  border: solid 2px;
+  width: 100%;
+  height: 600px;
 }
 
 .roll-user {
   font-size: 20px;
   margin-bottom: 10px;
-}
-
-.dice-input-field {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 10px;
-}
-
-.dice-rolls {
-  min-width: 75px;
-  margin-left: 195px;
-  margin-right: 140px;
-  padding: 0px;
-  list-style: none;
-  text-align: left;
-  color: slategrey;
-}
-
-@media only screen and (max-width: 768px) {
-  .dice-rolls {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
 }
 
 .roll-succes {
@@ -102,21 +81,47 @@
   border-top: none;
 }
 
-form {
-  margin-left: 180px;
-  margin-right: 180px;
-  margin-bottom: 50px;
+.tab-interaction {
+  min-width: 75px;
+  color: slategray;
+  padding: 0px;
+}
+
+.tab-interaction li {
+  list-style: none;
+  text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+  .tab-interaction {
+    margin-left: 195px;
+    margin-right: 195px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-  form {
+  .tab-interaction {
     margin-left: 20px;
     margin-right: 20px;
   }
 }
 
+form {
+  margin-bottom: 50px;
+}
+
+.form-tabs-drawing {
+  text-align: center;
+}
+
 .form-control {
   min-width: 75px;
+}
+
+.dice-input-field {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
 }
 
 h1 {

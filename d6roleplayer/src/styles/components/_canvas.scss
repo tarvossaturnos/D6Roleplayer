@@ -1,11 +1,5 @@
-@import '../themes/theme';
-
 #canvas {
-    border: solid 2px $primaryColor;  
-    width: 75%;
+    border: solid 2px;  
+    width: 100%;
     height: 600px;
-}
-
-.drawing-area {
-    text-align: center;
 }

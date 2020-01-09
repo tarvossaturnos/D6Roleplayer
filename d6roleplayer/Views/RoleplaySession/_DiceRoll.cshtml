@@ -2,7 +2,7 @@
 
 <h2>Roll with your party</h2>
 
-<form>
+<form class="tab-interaction">
     <div class="form-group row">
         <label for="username" class="col-sm-3 col-form-label">Username</label>
         <div class="col-sm-5">
@@ -29,7 +29,7 @@
 </form>
 
 <div>
-    <ul id="diceRolls" class="dice-rolls">
+    <ul id="diceRolls" class="tab-interaction">
         @foreach (var diceRoll in Model.DiceRolls)
         {
             <li>

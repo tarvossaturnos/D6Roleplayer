@@ -1,17 +1,22 @@
-﻿<div class="drawing-area">
-    <h2>Draw with your party</h2>
-    <p>
-        <i>Tip: Wait for everybody to join the session before starting!</i>
-    </p>
-    <form>
-        <div style="text-align:center;">
-            <button type="submit" class="btn btn-primary" id="syncDrawing">Push drawing to everyone</button>
-            <button type="submit" class="btn btn-reset" id="resetDrawing">Reset drawing for everyone</button>
-        </div>
-    </form>
-    <hr />
-    <button onclick="selectColor('#000000')">Black</button>
-    <button onclick="selectColor('#ff0000')">Red</button>
+﻿<h2>Draw with your party</h2>
+
+<form class="form-tabs-drawing">
+    <button type="submit" class="btn btn-primary" id="syncDrawing">Push drawing to everyone</button>
+    <button type="submit" class="btn btn-reset" id="resetDrawing">Reset drawing for everyone</button>
+</form>
+
+<hr />
+<div class="tab-interaction">
+    <button class="btn-canvas" style="background:#000000;" onclick="selectColor('#000000')"></button>
+    <button class="btn-canvas" style="background:#ffffff;" onclick="selectColor('#ffffff')"></button>
+    <button class="btn-canvas" style="background:#4b4b4b;" onclick="selectColor('#4b4b4b')"></button>
+    <button class="btn-canvas" style="background:#3366ff;" onclick="selectColor('#3366ff')"></button>
+    <button class="btn-canvas" style="background:#30ff59;" onclick="selectColor('#30ff59')"></button>
+    <button class="btn-canvas" style="background:#fffb00;" onclick="selectColor('#fffb00')"></button>
+    <button class="btn-canvas" style="background:#ff0000;" onclick="selectColor('#ff0000')"></button>
+    <button class="btn-canvas" style="background:#ff7d40;" onclick="selectColor('#ff7d40')"></button>
+    <button class="btn-canvas" style="background:#ff40df;" onclick="selectColor('#ff40df')"></button>
+
     <div id="canvasDiv">
     </div>
 </div>

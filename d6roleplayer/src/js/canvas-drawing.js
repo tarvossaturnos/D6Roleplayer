@@ -90,9 +90,9 @@ var redraw = function () {
         context.strokeStyle = clickColor[i];
 
         if (clickColor[i] == "#ffffff") {
-            radius = 5;
+            radius = 15;
         } else {
-            radius = 1;
+            radius = 3;
         }
 
         context.lineCap = "round";
