@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\d6roleplayer.Infrastructure\D6Roleplayer.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

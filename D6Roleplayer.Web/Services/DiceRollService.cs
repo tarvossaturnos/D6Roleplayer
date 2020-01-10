@@ -1,5 +1,6 @@
 ﻿using d6roleplayer.Constants;
 using d6roleplayer.Models;
+using D6Roleplayer.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,15 @@ namespace d6roleplayer.Services
 {
     public class DiceRollService : IDiceRollService
     {
-        private readonly DatabaseContext databaseContext;
+        private readonly IDiceRollRepository diceRollRepository;
+        private readonly IInitiativeRollRepository initiativeRollRepository;
 
-        public DiceRollService(DatabaseContext databaseContext)
+        public DiceRollService(
+            IDiceRollRepository diceRollRepository,
+            IInitiativeRollRepository initiativeRollRepository)
         {
-            this.databaseContext = databaseContext;
+            this.diceRollRepository = diceRollRepository;
+            this.initiativeRollRepository = initiativeRollRepository;
         }
 
         public DiceRollResult GetDiceRollResult(DiceRollRequest request)
@@ -39,10 +44,7 @@ namespace d6roleplayer.Services
                 Success = success,
             };
 
-            databaseContext.Add(diceRollResult);
-            RemoveDiceEntriesAtLimit(diceRollResult.RoleplaySessionId, 24);            
-
-            databaseContext.SaveChanges();
+            diceRollRepository.Create(diceRollResult);           
 
             return diceRollResult;
         }
@@ -60,18 +62,15 @@ namespace d6roleplayer.Services
                 Roll = roll
             };
 
-            databaseContext.Add(initiativeRollResult);
-            databaseContext.SaveChanges();
-
+            initiativeRollRepository.Create(initiativeRollResult);
+            
             return initiativeRollResult;
         }
 
         public void ResetInitiativeRollResults(string sessionId)
         {
-            databaseContext.InitiativeRollResults
-                .RemoveRange(databaseContext.InitiativeRollResults
-                .Where(result => result.RoleplaySessionId == sessionId));
-            databaseContext.SaveChanges();
+            var initiativeRolls = initiativeRollRepository.Read(sessionId);
+            initiativeRollRepository.Delete(initiativeRolls);
         }
 
         private (bool success, string resultMessage) CalculateDiceRollSuccess(List<int> diceRolls)
@@ -126,19 +125,6 @@ namespace d6roleplayer.Services
                 request.Bonus = 1;
 
             return request;
-        }
-
-        private void RemoveDiceEntriesAtLimit(string sessionId, int limit)
-        {
-            var entriesToDelete = databaseContext.DiceRollResults
-              .Where(diceRoll => diceRoll.RoleplaySessionId == sessionId)
-              .OrderByDescending(result => result.Id)
-              .Skip(limit);
-
-            foreach (var entry in entriesToDelete)
-            {
-                databaseContext.Remove(entry);
-            }
         }
     }
 }

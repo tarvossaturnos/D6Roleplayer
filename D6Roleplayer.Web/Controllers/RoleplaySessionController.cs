@@ -1,35 +1,35 @@
 ﻿using d6roleplayer.Constants;
 using d6roleplayer.Models;
+using D6Roleplayer.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace d6roleplayer.Controllers
 {
     public class RoleplaySessionController : Controller
     {
-        private readonly DatabaseContext databaseContext;
-        const int MaxResults = 25;
+        private readonly IRoleplaySessionRepository roleplaySessionRepository;
+        private readonly IDiceRollRepository diceRollRepository;
+        private readonly IInitiativeRollRepository initiativeRollRepository;
 
-        public RoleplaySessionController(DatabaseContext databaseContext)
+        public RoleplaySessionController(
+            IRoleplaySessionRepository roleplaySessionRepository,
+            IDiceRollRepository diceRollRepository,
+            IInitiativeRollRepository initiativeRollRepository)
         {
-            this.databaseContext = databaseContext;
+            this.roleplaySessionRepository = roleplaySessionRepository;
+            this.diceRollRepository = diceRollRepository;
+            this.initiativeRollRepository = initiativeRollRepository;
         }
 
         public IActionResult Index(string sessionId, bool create)
         {
-            var session = databaseContext.RoleplaySessions.FirstOrDefault(session => session.Id == sessionId);
+            var session = roleplaySessionRepository.Read(sessionId);
 
             if (session == null && create)
             {
-                // Create a new Roleplay Session.
-                session = new RoleplaySession
-                {
-                    Id = sessionId
-                };
-
-                databaseContext.Add(session);
-                databaseContext.SaveChanges();
+                session = new RoleplaySession { Id = sessionId };
+                roleplaySessionRepository.Create(session);
 
                 return Redirect($"{Request.GetDisplayUrl()}?sessionId={sessionId}");
             }
@@ -41,14 +41,8 @@ namespace d6roleplayer.Controllers
                     username = DefaultUser.Name;
                 }
 
-                var diceRolls = databaseContext.DiceRollResults
-                    .Where(result => result.RoleplaySessionId == session.Id)
-                    .OrderByDescending(result => result.Id)
-                    .Take(MaxResults);
-
-                var initiativeRolls = databaseContext.InitiativeRollResults
-                    .Where(result => result.RoleplaySessionId == session.Id)
-                    .OrderByDescending(result => result.Roll);
+                var diceRolls = diceRollRepository.Read(session.Id);
+                var initiativeRolls = initiativeRollRepository.Read(session.Id);
 
                 var viewModel = new DiceRollsViewModel
                 {
