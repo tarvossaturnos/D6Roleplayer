@@ -73,7 +73,7 @@ var redraw = function () {
     var i;
 
     clearCanvas();
-
+    
     // For each point stored in the array.
     for (i = 0; i < clickX.length; i += 1) {
         context.beginPath();
@@ -90,9 +90,9 @@ var redraw = function () {
         context.strokeStyle = clickColor[i];
 
         if (clickColor[i] == "#ffffff") {
-            radius = 15;
+            radius = 40;
         } else {
-            radius = 3;
+            radius = 5;
         }
 
         context.lineCap = "round";
