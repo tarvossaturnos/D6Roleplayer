@@ -1,12 +1,12 @@
 ﻿[
   {
-    "outputFileName": "wwwroot/css/site.min.css",
+    "outputFileName": "wwwroot/css/main.min.css",
     "inputFiles": [
-      "src/css/site.css"
+      "src/styles/main.css"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
+    "outputFileName": "wwwroot/js/main.min.js",
     "inputFiles": [
       "src/js/site.js",
       "src/js/signalr/dist/browser/signalr.js",

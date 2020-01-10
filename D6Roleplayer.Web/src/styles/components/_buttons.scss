@@ -1,0 +1,34 @@
+﻿@import '../themes/theme';
+
+.btn-primary {
+    min-width: 75px;
+    color: white;
+    background-color: $primaryColor;
+    border: none;
+}
+
+    .btn-primary:hover {
+        color: black;
+        background-color: lightgray;
+    }
+
+.btn-reset {
+    min-width: 75px;
+    color: white;
+    background-color: dimgray;
+    border: none;
+}
+
+    .btn-reset:hover {
+        color: black;
+        background-color: lightgray;
+    }
+
+.btn-canvas {
+    min-width: 30px;
+    min-height: 30px;
+}
+
+    .btn-canvas:focus {
+        border: solid 2px;
+    }

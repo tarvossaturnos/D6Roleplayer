@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "d6roleplayer", "d6roleplayer\d6roleplayer.csproj", "{4D6D985E-9C8A-4255-B6F7-5041FAF5C7D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D6Roleplayer.Infrastructure", "d6roleplayer.Infrastructure\D6Roleplayer.Infrastructure.csproj", "{C1A57758-8DAF-42FB-BEA7-E0A2F85734D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D6Roleplayer.Web", "d6roleplayer.Web\D6Roleplayer.Web.csproj", "{95DD5DC8-6950-4F56-900B-6099735898DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4D6D985E-9C8A-4255-B6F7-5041FAF5C7D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D6D985E-9C8A-4255-B6F7-5041FAF5C7D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D6D985E-9C8A-4255-B6F7-5041FAF5C7D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D6D985E-9C8A-4255-B6F7-5041FAF5C7D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1A57758-8DAF-42FB-BEA7-E0A2F85734D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A57758-8DAF-42FB-BEA7-E0A2F85734D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A57758-8DAF-42FB-BEA7-E0A2F85734D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A57758-8DAF-42FB-BEA7-E0A2F85734D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95DD5DC8-6950-4F56-900B-6099735898DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95DD5DC8-6950-4F56-900B-6099735898DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95DD5DC8-6950-4F56-900B-6099735898DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95DD5DC8-6950-4F56-900B-6099735898DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,7 +2,7 @@
 
 <h2>Roll Initiative!</h2>
 
-<form>
+<form class="tab-interaction">
     <div class="form-group row">
         <label for="count" class="col-sm-3 col-form-label">Bonus</label>
         <div class="col-sm-2">
@@ -17,8 +17,10 @@
     </div>
 </form>
 
+<hr />
+
 <div>
-    <ul id="initiativeList" class="message-list">
+    <ul id="initiativeList" class="tab-interaction">
         @foreach (var initiativeRoll in Model.InitiativeRolls)
         {
             <li>
@@ -29,12 +31,3 @@
         }
     </ul>
 </div>
-
-<hr />
-<form>
-    <div class="form-group row">
-        <div class="col-sm-offset-3 col-sm-10">
-           
-        </div>
-    </div>
-</form>

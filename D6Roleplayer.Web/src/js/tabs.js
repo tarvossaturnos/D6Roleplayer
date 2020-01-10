@@ -1,4 +1,6 @@
-﻿openTab(null, 'dice');
+﻿"use strict";
+
+openTab(null, 'dice');
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
