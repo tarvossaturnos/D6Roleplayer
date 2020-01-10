@@ -196,3 +196,9 @@ function getMousePos(e) {
 function selectColor(color) {
     curColor = color;
 }
+
+function downloadCanvas() {
+    var download = document.getElementById("download-canvas");
+    var image = document.getElementById("canvas").toDataURL("image/png");
+    download.setAttribute("href", image);
+}

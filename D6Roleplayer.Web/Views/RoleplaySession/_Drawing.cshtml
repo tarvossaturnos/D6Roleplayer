@@ -1,6 +1,9 @@
 ﻿<h2>Draw with your party</h2>
 
 <form class="form-tabs-drawing">
+    <a id="download-canvas" download="D6Roleplayer-canvas.png">
+        <button type="button" class="btn btn-primary" onClick="downloadCanvas()">Download drawing</button>
+    </a>
     <button type="submit" class="btn btn-primary" id="syncDrawing">Push drawing to everyone</button>
     <button type="submit" class="btn btn-reset" id="resetDrawing">Reset drawing for everyone</button>
 </form>
@@ -21,5 +24,5 @@
     <button class="btn-canvas" style="background:#ff40df;" onclick="selectColor('#ff40df')"></button>
 
     <div id="canvasDiv">
-    </div>
+    </div>   
 </div>
