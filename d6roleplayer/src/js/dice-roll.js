@@ -3,30 +3,29 @@
 document.getElementById("sendButton").disabled = true;
 
 connection.on("UpdateDiceRolls", function (username, message, rolls, resultMessage, success) {
-    var user = username.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-    var encodedMsg = `Performs action ${msg}`;
-    var resultMsg = `${rolls} - ${resultMessage}`;
-    
-    var li = document.createElement("li");
-
+    // User.
+    username = username.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     var userDiv = document.createElement("b");
     userDiv.className = "roll-user";
-    userDiv.textContent = user;
+    userDiv.textContent = username;
 
-    var actionDiv = document.createElement("div");
-    actionDiv.textContent = encodedMsg;
+    // Description.
+    message = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    message = `Performs action ${message}`;
+    var messageDiv = document.createElement("div");
+    messageDiv.textContent = message;
 
+    // Result.
+    resultMessage = `${rolls} - ${resultMessage}`; 
     var resultDiv = document.createElement("div");
     resultDiv.className = success ? "roll-succes" : "roll-failure";
-    resultDiv.textContent = resultMsg;
+    resultDiv.textContent = resultMessage;
 
     var hr = document.createElement("hr");
-
+    var li = document.createElement("li");
     li.appendChild(hr);
     li.append(userDiv);
-    li.append(actionDiv);
+    li.append(messageDiv);
     li.appendChild(resultDiv);
 
     var list = document.getElementById("diceRolls");
