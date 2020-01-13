@@ -4,7 +4,6 @@ using D6Roleplayer.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace d6roleplayer.Services
 {
@@ -68,10 +67,10 @@ namespace d6roleplayer.Services
             return initiativeRollResult;
         }
 
-        public async Task ResetInitiativeRollResults(string sessionId)
+        public void ResetInitiativeRollResults(string sessionId)
         {
-            var initiativeRolls = await initiativeRollRepository.Read(sessionId);
-            await initiativeRollRepository.Delete(initiativeRolls);
+            var initiativeRolls = initiativeRollRepository.Read(sessionId);
+            initiativeRollRepository.Delete(initiativeRolls);
         }
 
         private (bool success, string resultMessage) CalculateDiceRollSuccess(List<int> diceRolls)

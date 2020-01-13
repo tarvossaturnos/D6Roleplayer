@@ -1,6 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
 using d6roleplayer.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace D6Roleplayer.Infrastructure.Repositories
 {
@@ -13,15 +12,15 @@ namespace D6Roleplayer.Infrastructure.Repositories
             this.databaseContext = databaseContext;
         }
 
-        public async Task Create(RoleplaySession roleplaySession)
+        public void Create(RoleplaySession roleplaySession)
         {
-            await databaseContext.AddAsync(roleplaySession);
-            await databaseContext.SaveChangesAsync();
+            databaseContext.Add(roleplaySession);
+            databaseContext.SaveChanges();
         }
 
-        public async Task<RoleplaySession> Read(string sessionId)
+        public RoleplaySession Read(string sessionId)
         {
-            return await databaseContext.RoleplaySessions.FirstOrDefaultAsync(session => session.Id == sessionId);
+            return databaseContext.RoleplaySessions.FirstOrDefault(session => session.Id == sessionId);
         }
     }
 }
