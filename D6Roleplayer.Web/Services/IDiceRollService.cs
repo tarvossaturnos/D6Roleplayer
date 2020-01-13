@@ -1,4 +1,5 @@
 ﻿using d6roleplayer.Models;
+using System.Threading.Tasks;
 
 namespace d6roleplayer.Services
 {
@@ -8,6 +9,6 @@ namespace d6roleplayer.Services
 
         public InitiativeRollResult GetInitiativeRollResult(InitiativeRollRequest request);
 
-        public void ResetInitiativeRollResults(string sessionId);
+        public Task ResetInitiativeRollResults(string sessionId);
     }
 }

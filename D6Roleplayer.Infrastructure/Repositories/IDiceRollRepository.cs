@@ -1,12 +1,13 @@
 ﻿using d6roleplayer.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace D6Roleplayer.Infrastructure.Repositories
 {
     public interface IDiceRollRepository
     {
-        void Create(DiceRollResult diceRollResult);
+        Task Create(DiceRollResult diceRollResult);
 
-        IEnumerable<DiceRollResult> Read(string sessionId);
+        Task<IEnumerable<DiceRollResult>> Read(string sessionId);
     }
 }

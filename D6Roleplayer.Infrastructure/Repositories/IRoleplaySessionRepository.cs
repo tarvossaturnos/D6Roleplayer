@@ -1,11 +1,12 @@
 ﻿using d6roleplayer.Models;
+using System.Threading.Tasks;
 
 namespace D6Roleplayer.Infrastructure.Repositories
 {
     public interface IRoleplaySessionRepository
     {
-        void Create(RoleplaySession roleplaySession);
+        Task Create(RoleplaySession roleplaySession);
 
-        RoleplaySession Read(string sessionId);
+        Task<RoleplaySession> Read(string sessionId);
     }
 }
