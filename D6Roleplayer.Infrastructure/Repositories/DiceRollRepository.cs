@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using d6roleplayer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace D6Roleplayer.Infrastructure.Repositories
 {
@@ -15,28 +17,29 @@ namespace D6Roleplayer.Infrastructure.Repositories
             this.databaseContext = databaseContext;
         }
 
-        public void Create(DiceRollResult diceRollResult)
+        public async Task Create(DiceRollResult diceRollResult)
         {
-            databaseContext.Add(diceRollResult);
+            await databaseContext.AddAsync(diceRollResult);
             RemoveDiceEntriesAtLimit(diceRollResult.RoleplaySessionId, 24);
 
-            databaseContext.SaveChanges();
+            await databaseContext.SaveChangesAsync();
         }
 
-        public IEnumerable<DiceRollResult> Read(string sessionId)
+        public async Task<IEnumerable<DiceRollResult>> Read(string sessionId)
         {
-            return databaseContext.DiceRollResults
+            return await databaseContext.DiceRollResults
                 .Where(result => result.RoleplaySessionId == sessionId)
                 .OrderByDescending(result => result.Id)
-                .Take(MaxResults);
+                .Take(MaxResults)
+                .ToListAsync();
         }
 
         private void RemoveDiceEntriesAtLimit(string sessionId, int limit)
         {
             var entriesToDelete = databaseContext.DiceRollResults
-              .Where(diceRoll => diceRoll.RoleplaySessionId == sessionId)
-              .OrderByDescending(result => result.Id)
-              .Skip(limit);
+                .Where(diceRoll => diceRoll.RoleplaySessionId == sessionId)
+                .OrderByDescending(result => result.Id)
+                .Skip(limit);
 
             foreach (var entry in entriesToDelete)
             {
