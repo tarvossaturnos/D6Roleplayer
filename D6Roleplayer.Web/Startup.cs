@@ -1,6 +1,7 @@
 using d6roleplayer.Hubs;
 using d6roleplayer.Models;
 using d6roleplayer.Services;
+using D6Roleplayer.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Connections;
@@ -36,6 +37,9 @@ namespace d6roleplayer
                options.UseSqlServer(Configuration.GetConnectionString(connectionString)));
 
             services.AddTransient<IDiceRollService, DiceRollService>();
+            services.AddTransient<IDiceRollRepository, DiceRollRepository>();
+            services.AddTransient<IInitiativeRollRepository, InitiativeRollRepository>();
+            services.AddTransient<IRoleplaySessionRepository, RoleplaySessionRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

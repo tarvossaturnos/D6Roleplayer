@@ -1,5 +1,4 @@
-﻿using d6roleplayer.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace d6roleplayer.Models
 {
