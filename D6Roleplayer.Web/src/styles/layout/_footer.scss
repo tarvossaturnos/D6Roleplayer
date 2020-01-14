@@ -1,11 +1,14 @@
-body {
-    height: 100%;
-    position: relative;
+footer {     
+    @include themify($themes) {
+        background-color: themed('elementsBackgroundColor');  
+    }
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    white-space: nowrap; 
+    line-height: 60px;
 }
 
-footer {
- position:absolute;
- bottom:0;
- height:60px;
- background:#ccc;
+.copyright {
+    margin-left: 50px;
 }

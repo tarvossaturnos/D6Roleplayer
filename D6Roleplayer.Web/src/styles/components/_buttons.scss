@@ -2,10 +2,10 @@
 
 .btn-primary {
     @include themify($themes) {
+        color: themed('primaryContrastColor');
         background-color: themed('primaryColor');  
     }
     min-width: 75px;
-    color: white;
     border: none;
 }
 

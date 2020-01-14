@@ -1,0 +1,12 @@
+body {  
+    @include themify($themes) {
+        color: themed('textColor');
+        background-color: themed('backgroundColor');
+    }
+    margin-bottom: 60px; 
+    overflow-y: scroll; 
+}
+
+main {
+    padding-bottom: 50px;
+}

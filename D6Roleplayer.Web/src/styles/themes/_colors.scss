@@ -1,0 +1,18 @@
+$themes: (
+    light: (
+      backgroundColor: #DCDCDC,
+      textColor: #000000,
+      elementsBackgroundColor: #DCDCDC,
+      primaryColor: #cd5c5c,      
+      primaryContrastColor: #000000,
+      secondaryColor: #708090 
+    ),
+    dark: (
+      backgroundColor: #141414,    
+      textColor: #FFFFFF,
+      elementsBackgroundColor: #252525,
+      primaryColor: #FFBB04,
+      primaryContrastColor: #000000,
+      secondaryColor: #bbbbbb
+    ),
+  );  

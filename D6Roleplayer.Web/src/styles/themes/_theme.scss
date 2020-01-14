@@ -1,14 +1,16 @@
-$themes: (
-  light: (
-    backgroundColor: #DCDCDC,
-    tabBackgroundColor: #DCDCDC,
-    primaryColor: #45476D,
-    secondaryColor: #708090 
-  ),
-  dark: (
-    backgroundColor: #373737,    
-    tabBackgroundColor: #616161,
-    primaryColor: #45476D,
-    secondaryColor: #708090 
-  ),
-);
+@import '../base/typography';
+
+h1 {
+    @include themify($themes) {
+      color: themed('textColor');  
+    }
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+a {
+  @include themify($themes) {
+    color: themed('primaryColor');  
+  }
+}

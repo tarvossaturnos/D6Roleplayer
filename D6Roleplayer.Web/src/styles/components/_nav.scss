@@ -1,0 +1,13 @@
+.navbar-light .navbar-nav .nav-link {
+    @include themify($themes) {
+        color: themed('primaryColor'); 
+    }
+}
+
+.navbar-brand {
+    @include themify($themes) {
+        color: themed('primaryColor');  
+        }
+        font-size: 36px;
+        font-family: $headerFontFamily;
+}

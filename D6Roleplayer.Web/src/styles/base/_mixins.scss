@@ -1,4 +1,4 @@
-@import '../themes/theme';
+@import '../themes/colors';
 
 @mixin themify($themes: $themes) {
   @each $theme, $map in $themes {

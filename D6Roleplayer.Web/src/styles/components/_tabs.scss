@@ -1,16 +1,9 @@
 ﻿@import '../themes/theme';
 
-.tab-background {
-    @include themify($themes) {
-        background-color: themed('backgroundColor');  
-    }
-}
-
 .tab-container {
-    header {
-        @include themify($themes) {
-            background-color: themed('backgroundColor');  
-        }
+    @include themify($themes) {
+        color: themed('textColor');
+        background-color: themed('elementsBackgroundColor');
     }
     box-shadow: 1px 2px 10px #000000;
 }
@@ -34,11 +27,17 @@
     }
 
         .tab button:hover {
-            background-color: lightgray;
+            @include themify($themes) {
+                color: themed('textColor');
+                background-color: themed('elementsBackgroundColor');  
+            }
         }
 
         .tab button.active {
-            background-color: lightgray;
+            @include themify($themes) {
+                color: themed('textColor');
+                background-color: themed('elementsBackgroundColor');  
+            }
         }
 
 .tabcontent {
