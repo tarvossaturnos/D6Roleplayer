@@ -4,10 +4,22 @@
     }
 }
 
+.navbar-light:hover .navbar-nav:hover .nav-link:hover {
+    @include themify($themes) {
+        color: themed('secondaryColor'); 
+    }
+}
+
 .navbar-brand {
     @include themify($themes) {
         color: themed('primaryColor');  
-        }
-        font-size: 36px;
-        font-family: $headerFontFamily;
+    }
+    font-size: 36px;
+    font-family: $logoFont;
+}
+
+.navbar-brand:hover {
+    @include themify($themes) {
+        color: themed('secondaryColor'); 
+    }
 }
