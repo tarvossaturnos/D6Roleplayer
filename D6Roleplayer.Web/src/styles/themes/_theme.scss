@@ -1,2 +1,14 @@
-$primaryColor: indianred;
-$secondaryColor: slategray;
+$themes: (
+  light: (
+    backgroundColor: #DCDCDC,
+    tabBackgroundColor: #DCDCDC,
+    primaryColor: #45476D,
+    secondaryColor: #708090 
+  ),
+  dark: (
+    backgroundColor: #373737,    
+    tabBackgroundColor: #616161,
+    primaryColor: #45476D,
+    secondaryColor: #708090 
+  ),
+);

@@ -1,8 +1,25 @@
 ﻿@import '../themes/theme';
 
+.tab-background {
+    @include themify($themes) {
+        background-color: themed('backgroundColor');  
+    }
+}
+
+.tab-container {
+    header {
+        @include themify($themes) {
+            background-color: themed('backgroundColor');  
+        }
+    }
+    box-shadow: 1px 2px 10px #000000;
+}
+
 .tab {
+    @include themify($themes) {
+        background-color: themed('primaryColor');  
+    }
     overflow: hidden;
-    background-color: $primaryColor;
 }
 
     .tab button {
@@ -32,8 +49,10 @@
 }
 
 .tab-interaction {
+    @include themify($themes) {
+        color: themed('secondaryColor');  
+    }
     min-width: 75px;
-    color: $secondaryColor;
     padding: 0px;
     li {
         list-style: none;

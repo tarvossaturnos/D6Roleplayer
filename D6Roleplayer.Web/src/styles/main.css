@@ -1,8 +1,15 @@
 .btn-primary {
   min-width: 75px;
   color: white;
-  background-color: indianred;
   border: none;
+}
+
+.theme-light .btn-primary {
+  background-color: #45476D;
+}
+
+.theme-dark .btn-primary {
+  background-color: #45476D;
 }
 
 .btn-primary:hover {
@@ -52,9 +59,37 @@
   font-size: 18px;
 }
 
+.theme-light .tab-background {
+  background-color: #DCDCDC;
+}
+
+.theme-dark .tab-background {
+  background-color: #373737;
+}
+
+.tab-container {
+  -webkit-box-shadow: 1px 2px 10px #000000;
+          box-shadow: 1px 2px 10px #000000;
+}
+
+.theme-light .tab-container header {
+  background-color: #DCDCDC;
+}
+
+.theme-dark .tab-container header {
+  background-color: #373737;
+}
+
 .tab {
   overflow: hidden;
-  background-color: indianred;
+}
+
+.theme-light .tab {
+  background-color: #45476D;
+}
+
+.theme-dark .tab {
+  background-color: #45476D;
 }
 
 .tab button {
@@ -86,8 +121,15 @@
 
 .tab-interaction {
   min-width: 75px;
-  color: slategray;
   padding: 0px;
+}
+
+.theme-light .tab-interaction {
+  color: #708090;
+}
+
+.theme-dark .tab-interaction {
+  color: #708090;
 }
 
 .tab-interaction li {
@@ -113,7 +155,7 @@ form {
   margin-bottom: 50px;
 }
 
-.form-tabs-drawing {
+.form-center {
   text-align: center;
 }
 
@@ -125,6 +167,14 @@ form {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 10px;
+}
+
+.theme-light header {
+  background-color: #DCDCDC;
+}
+
+.theme-dark header {
+  background-color: #373737;
 }
 
 h1 {
@@ -139,76 +189,15 @@ h2 {
   margin-bottom: 30px;
 }
 
-.home {
-  text-align: center;
-}
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-.rp-page {
-  -webkit-box-shadow: 1px 2px 10px #000000;
-          box-shadow: 1px 2px 10px #000000;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  -webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
-          box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  overflow-y: scroll;
+  height: 100%;
+  position: relative;
 }
 
-.footer {
+footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
-  /* Vertically center the text there */
+  height: 60px;
+  background: #ccc;
 }
 /*# sourceMappingURL=main.css.map */

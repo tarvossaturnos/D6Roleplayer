@@ -1,6 +1,6 @@
 ﻿@model d6roleplayer.Models.HomeViewModel
 
-<div class="home">
+<div class="form-center">
     <p>Create your own roleplay session and share the link with your party!</p>
     <form method="post" action="@Url.Action("Index", "RoleplaySession")">
         <input type="hidden" name="sessionId" value="@Model.RoleplaySessionId" />

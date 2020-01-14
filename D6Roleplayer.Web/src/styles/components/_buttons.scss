@@ -1,9 +1,11 @@
 ﻿@import '../themes/theme';
 
 .btn-primary {
+    @include themify($themes) {
+        background-color: themed('primaryColor');  
+    }
     min-width: 75px;
     color: white;
-    background-color: $primaryColor;
     border: none;
 }
 
