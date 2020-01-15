@@ -1,7 +1,26 @@
-document.getElementById("MyElement").classList.add('MyClass');
+"use strict";
 
-document.getElementById("MyElement").classList.remove('MyClass');
+loadThemeFromCookie();
 
-if ( document.getElementById("MyElement").classList.contains('MyClass') )
+function loadThemeFromCookie() {
+    let cookie = getCookie("theme");
 
-document.getElementById("MyElement").classList.toggle('MyClass');
+    if (cookie == "light") {
+        document.getElementById('theme-switch').checked = true;
+        switchTheme();
+    }
+}
+
+function switchTheme() {;
+    let rootClassList = document.getElementsByTagName("html")[0].classList;
+
+    if (document.getElementById('theme-switch').checked) {
+        rootClassList.remove('theme-dark');        
+        rootClassList.add('theme-light');
+        setCookie("theme", "light");
+    } else {
+        rootClassList.remove('theme-light');        
+        rootClassList.add('theme-dark');
+        setCookie("theme", "dark");  
+    }
+};

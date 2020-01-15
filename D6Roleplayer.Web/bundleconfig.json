@@ -8,19 +8,27 @@
   {
     "outputFileName": "wwwroot/js/main.min.js",
     "inputFiles": [
-      "src/js/site.js",
-      "src/js/signalr/dist/browser/signalr.js",
-      "src/js/signalr-base.js",
-      "src/js/canvas-drawing.js",
-      "src/js/dice-roll.js",
-      "src/js/initiative-roll.js",
-      "src/js/tabs.js",
+      "src/js/cookie.js",
       "src/js/theme-switch.js"
     ],
     "minify": {
       "enabled": true,
       "renameLocals": true
-    },
-    "sourceMap": false
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/roleplay-session.min.js",
+    "inputFiles": [
+      "src/js/signalr/dist/browser/signalr.js",
+      "src/js/signalr-base.js",
+      "src/js/canvas-drawing.js",
+      "src/js/dice-roll.js",
+      "src/js/initiative-roll.js",
+      "src/js/tabs.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
   }
 ]

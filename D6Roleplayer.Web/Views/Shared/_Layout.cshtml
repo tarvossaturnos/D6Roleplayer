@@ -29,8 +29,8 @@
                     <ul class="navbar-nav ml-auto">
                         <li>
                             <label class="switch switch-flat">
-                                <input class="switch-input" type="checkbox" />
-                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <input class="switch-input" id="theme-switch" type="checkbox" onclick="switchTheme()" />
+                                <span class="switch-label" data-on="Light" data-off="Dark"></span>
                                 <span class="switch-handle"> </span>
                             </label>
                         </li>
@@ -51,6 +51,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/main.min.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

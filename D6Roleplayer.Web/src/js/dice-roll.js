@@ -36,8 +36,8 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     var username = document.getElementById("username").value;
     var message = document.getElementById("message").value;
     var count = document.getElementById("count").value;
-
-    document.cookie = `user=${username}; expires=Sat, 1 Jan 2022 12:00:00 UTC; path=/`;
+    
+    setCookie("user", username);
 
     connection.invoke("RequestDiceRoll", username, message, count)
         .catch(function (err) {
