@@ -14,7 +14,8 @@
       "src/js/canvas-drawing.js",
       "src/js/dice-roll.js",
       "src/js/initiative-roll.js",
-      "src/js/tabs.js"
+      "src/js/tabs.js",
+      "src/js/theme-switch.js"
     ],
     "minify": {
       "enabled": true,
