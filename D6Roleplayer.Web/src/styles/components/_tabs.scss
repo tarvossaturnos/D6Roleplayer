@@ -1,8 +1,18 @@
 ﻿@import '../themes/theme';
 
+.tab-container {
+    @include themify($themes) {
+        color: themed('textColor');
+        background-color: themed('elementsBackgroundColor');
+    }
+    box-shadow: 1px 2px 10px #000000;
+}
+
 .tab {
+    @include themify($themes) {
+        background-color: themed('primaryColor');  
+    }
     overflow: hidden;
-    background-color: $primaryColor;
 }
 
     .tab button {
@@ -17,11 +27,17 @@
     }
 
         .tab button:hover {
-            background-color: lightgray;
+            @include themify($themes) {
+                color: themed('textColor');
+                background-color: themed('elementsBackgroundColor');  
+            }
         }
 
         .tab button.active {
-            background-color: lightgray;
+            @include themify($themes) {
+                color: themed('secondaryColor');
+                background-color: themed('elementsBackgroundColor');  
+            }
         }
 
 .tabcontent {
@@ -32,8 +48,10 @@
 }
 
 .tab-interaction {
+    @include themify($themes) {
+        color: themed('secondaryColor');  
+    }
     min-width: 75px;
-    color: $secondaryColor;
     padding: 0px;
     li {
         list-style: none;

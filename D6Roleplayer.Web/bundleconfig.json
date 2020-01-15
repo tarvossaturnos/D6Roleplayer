@@ -8,7 +8,17 @@
   {
     "outputFileName": "wwwroot/js/main.min.js",
     "inputFiles": [
-      "src/js/site.js",
+      "src/js/cookie.js",
+      "src/js/theme-switch.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/roleplay-session.min.js",
+    "inputFiles": [
       "src/js/signalr/dist/browser/signalr.js",
       "src/js/signalr-base.js",
       "src/js/canvas-drawing.js",
@@ -19,7 +29,6 @@
     "minify": {
       "enabled": true,
       "renameLocals": true
-    },
-    "sourceMap": false
+    }
   }
 ]

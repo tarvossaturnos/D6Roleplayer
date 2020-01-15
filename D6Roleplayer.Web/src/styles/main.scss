@@ -1,9 +1,14 @@
-﻿@import 'base/typography';
+﻿@import 'base/mixins';
+@import 'base/typography';
 @import 'components/buttons';
 @import 'components/canvas';
 @import 'components/dicerolls';
 @import 'components/tabs';
-@import 'layout/forms';
+@import 'components/nav';
+@import 'components/switches';
+@import 'layout/html';
+@import 'layout/body';
 @import 'layout/header';
-@import 'layout/layout';
+@import 'layout/footer';
+@import 'layout/forms';
 @import 'themes/theme';
