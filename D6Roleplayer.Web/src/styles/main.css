@@ -36,7 +36,7 @@ h1 {
 }
 
 .theme-light .btn-main {
-  color: #000000;
+  color: #ffffff;
   background-color: #cd5c5c;
 }
 
@@ -99,13 +99,27 @@ h1 {
 }
 
 .roll-succes {
-  color: #21FF13;
   font-size: 22px;
 }
 
+.theme-light .roll-succes {
+  color: #01A20B;
+}
+
+.theme-dark .roll-succes {
+  color: #71F979;
+}
+
 .roll-failure {
-  color: #FF1313;
   font-size: 18px;
+}
+
+.theme-light .roll-failure {
+  color: #FF1313;
+}
+
+.theme-dark .roll-failure {
+  color: #FF3636;
 }
 
 h1 {
@@ -138,7 +152,7 @@ h1 {
 
 .theme-light .tab-container {
   color: #000000;
-  background-color: #ffffff;
+  background-color: #fff7e6;
 }
 
 .theme-dark .tab-container {
@@ -172,7 +186,7 @@ h1 {
 
 .theme-light .tab button:hover {
   color: #000000;
-  background-color: #ffffff;
+  background-color: #fff7e6;
 }
 
 .theme-dark .tab button:hover {
@@ -182,7 +196,7 @@ h1 {
 
 .theme-light .tab button.active {
   color: #708090;
-  background-color: #ffffff;
+  background-color: #fff7e6;
 }
 
 .theme-dark .tab button.active {
@@ -470,7 +484,7 @@ main {
 
 .theme-light header {
   color: #000000;
-  background-color: #ffffff;
+  background-color: #fff7e6;
 }
 
 .theme-dark header {
@@ -487,7 +501,7 @@ footer {
 }
 
 .theme-light footer {
-  background-color: #ffffff;
+  background-color: #fff7e6;
 }
 
 .theme-dark footer {

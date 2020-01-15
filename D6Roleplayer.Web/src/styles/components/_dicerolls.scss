@@ -4,11 +4,15 @@
 }
 
 .roll-succes {
-    color: #21FF13;
+    @include themify($themes) {
+        color: themed('successColor');
+    }
     font-size: 22px;
 }
 
 .roll-failure {
-    color: #FF1313;
+    @include themify($themes) {
+        color: themed('failureColor');
+    }
     font-size: 18px;
 }

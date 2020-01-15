@@ -2,11 +2,13 @@ $themes: (
     light: (
       backgroundColor: #ffffff,
       textColor: #000000,
-      elementsBackgroundColor: #ffffff,
+      elementsBackgroundColor: #fff7e6,
       primaryColor: #cd5c5c,      
-      primaryContrastColor: #000000,
+      primaryContrastColor: #ffffff,
       secondaryColor: #708090,
       switchColor: #FFBB04,
+      successColor: #01A20B,
+      failureColor: #FF1313
     ),
     dark: (
       backgroundColor: #141414,    
@@ -15,6 +17,8 @@ $themes: (
       primaryColor: #FFBB04,
       primaryContrastColor: #000000,
       secondaryColor: #FFDF83,
-      switchColor: #FFBB04,
+      switchColor: #FFBB04,      
+      successColor: #71F979,
+      failureColor: #FF3636
     ),
   );
