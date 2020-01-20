@@ -1,27 +1,35 @@
 ﻿@import '../themes/theme';
 
-.btn-primary {
+.btn-main {
+    @include themify($themes) {
+        color: themed('primaryContrastColor');
+        background-color: themed('primaryColor');  
+    }
     min-width: 75px;
-    color: white;
-    background-color: $primaryColor;
     border: none;
+    font-size: 20px;
 }
 
-    .btn-primary:hover {
+    .btn-main:hover {
+        @include themify($themes) {
+            background-color: themed('secondaryColor');  
+        }
         color: black;
-        background-color: lightgray;
     }
 
 .btn-reset {
     min-width: 75px;
     color: white;
     background-color: dimgray;
-    border: none;
+    border: none;    
+    font-size: 20px;
 }
 
     .btn-reset:hover {
+        @include themify($themes) {
+            background-color: themed('secondaryColor');  
+        }
         color: black;
-        background-color: lightgray;
     }
 
 .btn-canvas {

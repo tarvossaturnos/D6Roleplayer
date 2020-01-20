@@ -1,2 +1,17 @@
-$primaryColor: indianred;
-$secondaryColor: slategray;
+@import '../base/typography';
+
+h1 {
+    @include themify($themes) {
+      color: themed('textColor');  
+    }
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 30px;    
+    font-family: $headerFont;
+}
+
+hr {
+  @include themify($themes) {
+    color: themed('secondaryColor');  
+  }
+}
