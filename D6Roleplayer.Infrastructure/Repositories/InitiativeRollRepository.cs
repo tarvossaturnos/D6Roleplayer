@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using d6roleplayer.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace D6Roleplayer.Infrastructure.Repositories
 {
@@ -15,24 +13,23 @@ namespace D6Roleplayer.Infrastructure.Repositories
             this.databaseContext = databaseContext;
         }
 
-        public async Task Create(InitiativeRollResult initiativeRollResult)
+        public void Create(InitiativeRollResult initiativeRollResult)
         {
-            await databaseContext.AddAsync(initiativeRollResult);
-            await databaseContext.SaveChangesAsync();
+            databaseContext.Add(initiativeRollResult);
+            databaseContext.SaveChanges();
         }
 
-        public async Task<IEnumerable<InitiativeRollResult>> Read(string sessionId)
+        public IEnumerable<InitiativeRollResult> Read(string sessionId)
         {
-            return await databaseContext.InitiativeRollResults
+            return databaseContext.InitiativeRollResults
                 .Where(result => result.RoleplaySessionId == sessionId)
-                .OrderByDescending(result => result.Roll)
-                .ToListAsync();
+                .OrderByDescending(result => result.Roll);
         }
 
-        public async Task Delete(IEnumerable<InitiativeRollResult> initiativeRollResults)
+        public void Delete(IEnumerable<InitiativeRollResult> initiativeRollResults)
         {
             databaseContext.InitiativeRollResults.RemoveRange(initiativeRollResults);
-            await databaseContext.SaveChangesAsync();
+            databaseContext.SaveChanges();
         }
     }
 }

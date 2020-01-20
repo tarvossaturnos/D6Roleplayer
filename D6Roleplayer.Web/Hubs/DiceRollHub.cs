@@ -61,7 +61,7 @@ namespace d6roleplayer.Hubs
 
         public async Task RequestResetInitiativeRolls()
         {
-            await diceRollService.ResetInitiativeRollResults(GetRoleplaySessionId());
+            diceRollService.ResetInitiativeRollResults(GetRoleplaySessionId());
             await Clients.Group(GetRoleplaySessionId()).SendAsync("ResetInitiativeRolls");
         }
 

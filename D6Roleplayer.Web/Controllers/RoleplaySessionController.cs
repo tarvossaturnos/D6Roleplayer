@@ -3,7 +3,6 @@ using d6roleplayer.Models;
 using D6Roleplayer.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace d6roleplayer.Controllers
 {
@@ -23,14 +22,14 @@ namespace d6roleplayer.Controllers
             this.initiativeRollRepository = initiativeRollRepository;
         }
 
-        public async Task<IActionResult> Index(string sessionId, bool create)
+        public IActionResult Index(string sessionId, bool create)
         {
-            var session = await roleplaySessionRepository.Read(sessionId);
+            var session = roleplaySessionRepository.Read(sessionId);
 
             if (session == null && create)
             {
                 session = new RoleplaySession { Id = sessionId };
-                await roleplaySessionRepository.Create(session);
+                roleplaySessionRepository.Create(session);
 
                 return Redirect($"{Request.GetDisplayUrl()}?sessionId={sessionId}");
             }
@@ -42,8 +41,8 @@ namespace d6roleplayer.Controllers
                     username = DefaultUser.Name;
                 }
 
-                var diceRolls = await diceRollRepository.Read(session.Id);
-                var initiativeRolls = await initiativeRollRepository.Read(session.Id);
+                var diceRolls = diceRollRepository.Read(session.Id);
+                var initiativeRolls = initiativeRollRepository.Read(session.Id);
 
                 var viewModel = new DiceRollsViewModel
                 {
