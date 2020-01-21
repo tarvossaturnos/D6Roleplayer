@@ -1,4 +1,4 @@
-﻿namespace D6Roleplayer.Constants
+﻿namespace D6Roleplayer.Web.Constants
 {
     public static class DefaultUser
     {

@@ -1,11 +1,12 @@
-﻿using D6Roleplayer.Constants;
-using D6Roleplayer.Models;
+﻿using D6Roleplayer.Web.Constants;
+using D6Roleplayer.Web.Models;
 using D6Roleplayer.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using D6Roleplayer.Infrastructure.Models;
 
-namespace D6Roleplayer.Services
+namespace D6Roleplayer.Web.Services
 {
     public class DiceRollService : IDiceRollService
     {

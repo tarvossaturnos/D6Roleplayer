@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace D6Roleplayer.Models
+namespace D6Roleplayer.Infrastructure.Models
 {
     public class DatabaseContext : DbContext
     {

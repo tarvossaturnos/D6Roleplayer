@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using D6Roleplayer.Models;
+using D6Roleplayer.Web.Models;
 using System;
-using System.Text.RegularExpressions;
 
-namespace D6Roleplayer.Controllers
+namespace D6Roleplayer.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -26,12 +25,7 @@ namespace D6Roleplayer.Controllers
 
         private static string GenerateRoleplaySessionId()
         {
-            return $"{GetRandomNumber()}{GetRandomNumber()}{GetRandomNumber()}{GetRandomNumber()}{GetRandomNumber()}{GetRandomNumber()}";
-        }
-
-        private static string GetRandomNumber()
-        {
-            return new Random().Next(1, 10).ToString();
+            return new Random().Next(1000, 10000).ToString();
         }
     }
 }

@@ -3,8 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using D6Roleplayer.Models;
+using D6Roleplayer.Infrastructure.Models;
 
 namespace D6Roleplayer.Infrastructure.Migrations
 {

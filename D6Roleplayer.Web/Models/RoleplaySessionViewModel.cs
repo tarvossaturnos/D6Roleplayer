@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using D6Roleplayer.Infrastructure.Models;
+using System.Collections.Generic;
 
-namespace D6Roleplayer.Models
+namespace D6Roleplayer.Web.Models
 {
-    public class DiceRollsViewModel
+    public class RoleplaySessionViewModel
     {
         public string RoleplaySessionId { get; set; }
 

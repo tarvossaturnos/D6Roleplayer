@@ -1,4 +1,4 @@
-﻿namespace D6Roleplayer.Models
+﻿namespace D6Roleplayer.Web.Models
 {
     public class HomeViewModel
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace D6Roleplayer.Models
+namespace D6Roleplayer.Infrastructure.Models
 {
     public class RoleplaySession
     {

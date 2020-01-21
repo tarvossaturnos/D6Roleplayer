@@ -1,6 +1,3 @@
-using D6Roleplayer.Hubs;
-using D6Roleplayer.Models;
-using D6Roleplayer.Services;
 using D6Roleplayer.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using D6Roleplayer.Infrastructure.Models;
+using D6Roleplayer.Web.Services;
+using D6Roleplayer.Web.Hubs;
 
 namespace D6Roleplayer
 {
@@ -37,6 +37,7 @@ namespace D6Roleplayer
                options.UseSqlServer(Configuration.GetConnectionString(connectionString)));
 
             services.AddTransient<IDiceRollService, DiceRollService>();
+            services.AddTransient<IRoleplaySessionService, RoleplaySessionService>();
             services.AddTransient<IDiceRollRepository, DiceRollRepository>();
             services.AddTransient<IInitiativeRollRepository, InitiativeRollRepository>();
             services.AddTransient<IRoleplaySessionRepository, RoleplaySessionRepository>();

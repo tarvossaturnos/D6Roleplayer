@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace D6Roleplayer.Constants
+﻿namespace D6Roleplayer.Web.Constants
 {
     public static class CookieConstants
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace D6Roleplayer.Models
+namespace D6Roleplayer.Infrastructure.Models
 {
     public class DiceRollResult
     {

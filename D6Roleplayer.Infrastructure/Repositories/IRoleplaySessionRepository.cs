@@ -1,4 +1,4 @@
-﻿using D6Roleplayer.Models;
+﻿using D6Roleplayer.Infrastructure.Models;
 
 namespace D6Roleplayer.Infrastructure.Repositories
 {
