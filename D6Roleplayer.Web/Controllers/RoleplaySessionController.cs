@@ -1,58 +1,31 @@
-﻿using D6Roleplayer.Constants;
-using D6Roleplayer.Models;
-using D6Roleplayer.Infrastructure.Repositories;
+﻿using Microsoft.AspNetCore.Mvc;
+using D6Roleplayer.Web.Services;
 using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Mvc;
+using D6Roleplayer.Web.Constants;
 
-namespace D6Roleplayer.Controllers
+namespace D6Roleplayer.Web.Controllers
 {
     public class RoleplaySessionController : Controller
     {
-        private readonly IRoleplaySessionRepository roleplaySessionRepository;
-        private readonly IDiceRollRepository diceRollRepository;
-        private readonly IInitiativeRollRepository initiativeRollRepository;
+        private readonly IRoleplaySessionService roleplaySessionService;
 
-        public RoleplaySessionController(
-            IRoleplaySessionRepository roleplaySessionRepository,
-            IDiceRollRepository diceRollRepository,
-            IInitiativeRollRepository initiativeRollRepository)
+        public RoleplaySessionController(IRoleplaySessionService roleplaySessionService)
         {
-            this.roleplaySessionRepository = roleplaySessionRepository;
-            this.diceRollRepository = diceRollRepository;
-            this.initiativeRollRepository = initiativeRollRepository;
+            this.roleplaySessionService = roleplaySessionService;
         }
 
         public IActionResult Index(string sessionId, bool create)
         {
-            var session = roleplaySessionRepository.Read(sessionId);
+            var roleplaySession = roleplaySessionService.GetRoleplaySessionViewModel(
+                sessionId, Request.Cookies[CookieConstants.UserCookie], create);
 
-            if (session == null && create)
+            if (roleplaySession == null)
             {
-                session = new RoleplaySession { Id = sessionId };
-                roleplaySessionRepository.Create(session);
-
                 return Redirect($"{Request.GetDisplayUrl()}?sessionId={sessionId}");
             }
-            else if (session != null)
+            else if (roleplaySession != null)
             {
-                string username = Request.Cookies[CookieConstants.UserCookie];
-                if (string.IsNullOrWhiteSpace(username))
-                {
-                    username = DefaultUser.Name;
-                }
-
-                var diceRolls = diceRollRepository.Read(session.Id);
-                var initiativeRolls = initiativeRollRepository.Read(session.Id);
-
-                var viewModel = new DiceRollsViewModel
-                {
-                    Username = username,
-                    RoleplaySessionId = session.Id,
-                    DiceRolls = diceRolls,
-                    InitiativeRolls = initiativeRolls
-                };
-
-                return View("~/Views/RoleplaySession/Index.cshtml", viewModel);
+                return View("~/Views/RoleplaySession/Index.cshtml", roleplaySession);
             }
 
             return NotFound();
