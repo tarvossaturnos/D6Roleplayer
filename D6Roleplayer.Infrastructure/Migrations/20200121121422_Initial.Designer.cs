@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using d6roleplayer.Models;
 
-namespace d6roleplayer.Migrations
+namespace D6Roleplayer.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20191121195354_Initial")]
+    [Migration("20200121121422_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,27 @@ namespace d6roleplayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DiceRollResults");
+                });
+
+            modelBuilder.Entity("d6roleplayer.Models.InitiativeRollResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("RoleplaySessionId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Roll")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("InitiativeRollResults");
                 });
 
             modelBuilder.Entity("d6roleplayer.Models.RoleplaySession", b =>

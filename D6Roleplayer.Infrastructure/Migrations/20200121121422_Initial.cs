@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace d6roleplayer.Migrations
+namespace D6Roleplayer.Infrastructure.Migrations
 {
     public partial class Initial : Migration
     {
@@ -25,6 +25,21 @@ namespace d6roleplayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "InitiativeRollResults",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoleplaySessionId = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: true),
+                    Roll = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InitiativeRollResults", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RoleplaySessions",
                 columns: table => new
                 {
@@ -40,6 +55,9 @@ namespace d6roleplayer.Migrations
         {
             migrationBuilder.DropTable(
                 name: "DiceRollResults");
+
+            migrationBuilder.DropTable(
+                name: "InitiativeRollResults");
 
             migrationBuilder.DropTable(
                 name: "RoleplaySessions");
