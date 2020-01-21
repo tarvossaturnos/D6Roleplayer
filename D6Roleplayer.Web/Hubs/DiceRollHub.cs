@@ -1,10 +1,10 @@
-﻿using d6roleplayer.Models;
+﻿using D6Roleplayer.Models;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.Connections;
-using d6roleplayer.Services;
+using D6Roleplayer.Services;
 
-namespace d6roleplayer.Hubs
+namespace D6Roleplayer.Hubs
 {
     public class DiceRollHub : Hub
     {

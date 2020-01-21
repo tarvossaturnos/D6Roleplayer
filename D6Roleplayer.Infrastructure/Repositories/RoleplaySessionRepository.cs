@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using d6roleplayer.Models;
+using D6Roleplayer.Models;
 
 namespace D6Roleplayer.Infrastructure.Repositories
 {

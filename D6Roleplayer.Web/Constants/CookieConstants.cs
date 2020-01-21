@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace d6roleplayer.Constants
+namespace D6Roleplayer.Constants
 {
     public static class CookieConstants
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace d6roleplayer.Models
+namespace D6Roleplayer.Models
 {
     public class DiceRollsViewModel
     {

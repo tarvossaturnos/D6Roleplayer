@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace d6roleplayer
+namespace D6Roleplayer
 {
     public class Program
     {

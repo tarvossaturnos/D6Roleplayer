@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using d6roleplayer.Models;
+using D6Roleplayer.Models;
 using System;
 using System.Text.RegularExpressions;
 
-namespace d6roleplayer.Controllers
+namespace D6Roleplayer.Controllers
 {
     public class HomeController : Controller
     {

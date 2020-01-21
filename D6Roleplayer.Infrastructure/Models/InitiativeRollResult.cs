@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace d6roleplayer.Models
+namespace D6Roleplayer.Models
 {
     public class InitiativeRollResult
     {

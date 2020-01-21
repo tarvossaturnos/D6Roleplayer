@@ -1,10 +1,10 @@
-﻿using d6roleplayer.Constants;
-using d6roleplayer.Models;
+﻿using D6Roleplayer.Constants;
+using D6Roleplayer.Models;
 using D6Roleplayer.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace d6roleplayer.Controllers
+namespace D6Roleplayer.Controllers
 {
     public class RoleplaySessionController : Controller
     {

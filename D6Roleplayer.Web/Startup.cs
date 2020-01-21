@@ -1,6 +1,6 @@
-using d6roleplayer.Hubs;
-using d6roleplayer.Models;
-using d6roleplayer.Services;
+using D6Roleplayer.Hubs;
+using D6Roleplayer.Models;
+using D6Roleplayer.Services;
 using D6Roleplayer.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 
-namespace d6roleplayer
+namespace D6Roleplayer
 {
     public class Startup
     {

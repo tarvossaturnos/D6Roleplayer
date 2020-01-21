@@ -1,6 +1,6 @@
-﻿using d6roleplayer.Models;
+﻿using D6Roleplayer.Models;
 
-namespace d6roleplayer.Services
+namespace D6Roleplayer.Services
 {
     public interface IDiceRollService
     {
