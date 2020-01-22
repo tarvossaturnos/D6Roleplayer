@@ -18,7 +18,7 @@ h1 {
 }
 
 .theme-dark h1 {
-  color: #FFFFFF;
+  color: #ededed;
 }
 
 .theme-light hr {
@@ -32,7 +32,7 @@ h1 {
 .btn-main {
   min-width: 75px;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .theme-light .btn-main {
@@ -62,7 +62,7 @@ h1 {
   color: white;
   background-color: dimgray;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .btn-reset:hover {
@@ -134,7 +134,7 @@ h1 {
 }
 
 .theme-dark h1 {
-  color: #FFFFFF;
+  color: #ededed;
 }
 
 .theme-light hr {
@@ -152,11 +152,11 @@ h1 {
 
 .theme-light .tab-container {
   color: #000000;
-  background-color: #fff7e6;
+  background-color: #ffffff;
 }
 
 .theme-dark .tab-container {
-  color: #FFFFFF;
+  color: #ededed;
   background-color: #252525;
 }
 
@@ -186,17 +186,17 @@ h1 {
 
 .theme-light .tab button:hover {
   color: #000000;
-  background-color: #fff7e6;
+  background-color: #ffffff;
 }
 
 .theme-dark .tab button:hover {
-  color: #FFFFFF;
+  color: #ededed;
   background-color: #252525;
 }
 
 .theme-light .tab button.active {
   color: #708090;
-  background-color: #fff7e6;
+  background-color: #ffffff;
 }
 
 .theme-dark .tab button.active {
@@ -217,11 +217,11 @@ h1 {
 }
 
 .theme-light .tab-interaction {
-  color: #708090;
+  color: #000000;
 }
 
 .theme-dark .tab-interaction {
-  color: #FFDF83;
+  color: #ededed;
 }
 
 .tab-interaction li {
@@ -474,7 +474,7 @@ body {
 }
 
 .theme-dark body {
-  color: #FFFFFF;
+  color: #ededed;
   background-color: #141414;
 }
 
@@ -484,11 +484,11 @@ main {
 
 .theme-light header {
   color: #000000;
-  background-color: #fff7e6;
+  background-color: #ffffff;
 }
 
 .theme-dark header {
-  color: #FFFFFF;
+  color: #ededed;
   background-color: #252525;
 }
 
@@ -501,7 +501,7 @@ footer {
 }
 
 .theme-light footer {
-  background-color: #fff7e6;
+  background-color: #ffffff;
 }
 
 .theme-dark footer {
@@ -539,7 +539,7 @@ h1 {
 }
 
 .theme-dark h1 {
-  color: #FFFFFF;
+  color: #ededed;
 }
 
 .theme-light hr {

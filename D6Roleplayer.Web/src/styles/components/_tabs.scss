@@ -49,7 +49,7 @@
 
 .tab-interaction {
     @include themify($themes) {
-        color: themed('secondaryColor');  
+        color: themed('textColor');  
     }
     min-width: 75px;
     padding: 0px;
