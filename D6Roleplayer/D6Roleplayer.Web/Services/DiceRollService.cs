@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using D6Roleplayer.Infrastructure.Models;
+using D6Roleplayer.Infrastructure.Clients;
 
 namespace D6Roleplayer.Web.Services
 {
@@ -12,28 +13,23 @@ namespace D6Roleplayer.Web.Services
     {
         private readonly IDiceRollRepository diceRollRepository;
         private readonly IInitiativeRollRepository initiativeRollRepository;
+        private readonly IDiceRollerClient diceRollClient;
 
         public DiceRollService(
             IDiceRollRepository diceRollRepository,
-            IInitiativeRollRepository initiativeRollRepository)
+            IInitiativeRollRepository initiativeRollRepository,
+            IDiceRollerClient diceRollClient)
         {
             this.diceRollRepository = diceRollRepository;
             this.initiativeRollRepository = initiativeRollRepository;
+            this.diceRollClient = diceRollClient;
         }
 
         public DiceRollResult GetDiceRollResult(DiceRollRequest request)
         {
             request = ValidateDiceRollRequest(request);
 
-            var diceRolls = new List<int>();
-            var random = new Random();
 
-            for (int i = 0; i < request.Count; i++)
-            {
-                diceRolls.Add(random.Next(1, 7));
-            }
-
-            var (success, resultMessage) = CalculateDiceRollSuccess(diceRolls);
 
             var diceRollResult = new DiceRollResult
             {
@@ -54,7 +50,7 @@ namespace D6Roleplayer.Web.Services
         {
             request = ValidateInitiativeRollRequest(request);
 
-            int roll = new Random().Next(1, 7) + request.Bonus;
+            //int roll = new Random().Next(1, 7) + request.Bonus;
 
             var initiativeRollResult = new InitiativeRollResult
             {
@@ -72,31 +68,6 @@ namespace D6Roleplayer.Web.Services
         {
             var initiativeRolls = initiativeRollRepository.Read(sessionId);
             initiativeRollRepository.Delete(initiativeRolls);
-        }
-
-        private (bool success, string resultMessage) CalculateDiceRollSuccess(List<int> diceRolls)
-        {
-            bool success = false;
-            string resultMessage = string.Empty;
-
-            if (diceRolls.Any(die => die == 6))
-            {
-                if (diceRolls.Count(die => die == 6) >= 2 && !diceRolls.Any(die => die == 1))
-                    resultMessage = "Epic Success";
-                else
-                    resultMessage = "Success";
-
-                success = true;
-            }
-            else
-            {
-                if (diceRolls.Count(die => die == 1) >= 2)
-                    resultMessage = "Epic fail";
-                else
-                    resultMessage = "Fail";
-            }
-
-            return (success, resultMessage);
         }
 
         private DiceRollRequest ValidateDiceRollRequest(DiceRollRequest request)

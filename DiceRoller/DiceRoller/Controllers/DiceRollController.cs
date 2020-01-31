@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiceRoller.Models;
+using DiceRoller.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DiceRoller.Controllers
@@ -7,11 +8,24 @@ namespace DiceRoller.Controllers
     [Route("[controller]")]
     public class DiceRollController : ControllerBase
     {
-        [HttpGet]
-        public string Get()
+        private readonly IDiceRollService diceRollService;
+
+        public DiceRollController(IDiceRollService diceRollService)
         {
-            var random = new Random();
-            return random.Next(1, 7).ToString();
+            this.diceRollService = diceRollService;
+        }
+
+        [HttpGet]
+        public string Roll()
+        {
+            return diceRollService.RollDice().ToString();
+        }
+
+        [HttpGet]
+        [Route("Roleplay")]
+        public RoleplayDiceRollResponse RoleplayRoll(int amount)
+        {
+            return diceRollService.GetRoleplayDiceResult(amount);
         }
     }
 }
