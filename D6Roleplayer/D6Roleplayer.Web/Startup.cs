@@ -20,7 +20,7 @@ namespace D6Roleplayer
             Configuration = configuration;
         }
 
-        string connectionString = "DevConnection";
+        string connectionString;
 
         public IConfiguration Configuration { get; }
 
@@ -34,7 +34,7 @@ namespace D6Roleplayer
             });
             
             services.AddDbContext<DatabaseContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString(connectionString)));
+               options.UseSqlServer(connectionString));
 
             services.AddTransient<IDiceRollService, DiceRollService>();
             services.AddTransient<IRoleplaySessionService, RoleplaySessionService>();
@@ -50,14 +50,14 @@ namespace D6Roleplayer
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                connectionString = "DevConnection";
+                connectionString = Configuration.GetConnectionString("Sql");
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
-                connectionString = "PrdConnection";
+
+                Configuration.GetConnectionString("Data:DefaultConnection:ConnectionString");
             }
 
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
