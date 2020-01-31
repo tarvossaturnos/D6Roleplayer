@@ -1,0 +1,13 @@
+﻿@model D6Roleplayer.Web.Models.HomeViewModel
+
+<h1>The dice roller for D6-based roleplaying games</h1>
+<hr />
+
+<div class="form-center">
+    <p>Create your own roleplay session and share the link with your party!</p>
+    <form method="post" action="@Url.Action("Index", "RoleplaySession")">
+        <input type="hidden" name="sessionId" value="@Model.RoleplaySessionId" />
+        <input type="hidden" name="create" value="true" />
+        <input type="submit" value="Create a roleplay session" class="btn btn-main">
+    </form>
+</div>

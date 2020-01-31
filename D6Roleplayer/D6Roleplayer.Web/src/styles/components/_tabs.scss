@@ -1,0 +1,73 @@
+﻿@import '../themes/theme';
+
+.tab-container {
+    @include themify($themes) {
+        color: themed('textColor');
+        background-color: themed('elementsBackgroundColor');
+    }
+    box-shadow: 1px 2px 10px #000000;
+}
+
+.tab {
+    @include themify($themes) {
+        background-color: themed('primaryColor');  
+    }
+    overflow: hidden;
+}
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+        .tab button:hover {
+            @include themify($themes) {
+                color: themed('textColor');
+                background-color: themed('elementsBackgroundColor');  
+            }
+        }
+
+        .tab button.active {
+            @include themify($themes) {
+                color: themed('secondaryColor');
+                background-color: themed('elementsBackgroundColor');  
+            }
+        }
+
+.tabcontent {
+    display: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: none;
+}
+
+.tab-interaction {
+    @include themify($themes) {
+        color: themed('textColor');  
+    }
+    min-width: 75px;
+    padding: 0px;
+    li {
+        list-style: none;
+        text-align: left;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .tab-interaction {
+        margin-left: 195px;
+        margin-right: 195px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .tab-interaction {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
