@@ -1,11 +1,9 @@
 ﻿using D6Roleplayer.Web.Constants;
 using D6Roleplayer.Web.Models;
 using D6Roleplayer.Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using D6Roleplayer.Infrastructure.Models;
 using D6Roleplayer.Infrastructure.Clients;
+using Newtonsoft.Json;
 
 namespace D6Roleplayer.Web.Services
 {
@@ -29,16 +27,17 @@ namespace D6Roleplayer.Web.Services
         {
             request = ValidateDiceRollRequest(request);
 
-
+            var roleplayDiceRollResponse = JsonConvert
+                .DeserializeObject<RoleplayDiceRollResponse>(diceRollClient.ProcessRollRoleplayDicesRequest(request.Count).Result);
 
             var diceRollResult = new DiceRollResult
             {
                 RoleplaySessionId = request.RoleplaySessionId,
                 Username = request.Username,
                 Message = request.Message,
-                Rolls = string.Join(", ", diceRolls),
-                ResultMessage = resultMessage,
-                Success = success,
+                Rolls = string.Join(", ", roleplayDiceRollResponse.Rolls),
+                ResultMessage = roleplayDiceRollResponse.Message,
+                Success = roleplayDiceRollResponse.Success,
             };
 
             diceRollRepository.Create(diceRollResult);           
@@ -49,14 +48,13 @@ namespace D6Roleplayer.Web.Services
         public InitiativeRollResult GetInitiativeRollResult(InitiativeRollRequest request)
         {
             request = ValidateInitiativeRollRequest(request);
-
-            //int roll = new Random().Next(1, 7) + request.Bonus;
+            int.TryParse(diceRollClient.ProcessDiceRollRequest().Result, out int roll);
 
             var initiativeRollResult = new InitiativeRollResult
             {
                 RoleplaySessionId = request.RoleplaySessionId,
                 Username = request.Username,
-                Roll = roll
+                Roll = roll + request.Bonus
             };
 
             initiativeRollRepository.Create(initiativeRollResult);

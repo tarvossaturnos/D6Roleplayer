@@ -18,7 +18,7 @@ h1 {
 }
 
 .theme-dark h1 {
-  color: #ededed;
+  color: #ffffff;
 }
 
 .theme-light hr {
@@ -134,7 +134,7 @@ h1 {
 }
 
 .theme-dark h1 {
-  color: #ededed;
+  color: #ffffff;
 }
 
 .theme-light hr {
@@ -156,7 +156,7 @@ h1 {
 }
 
 .theme-dark .tab-container {
-  color: #ededed;
+  color: #ffffff;
   background-color: #252525;
 }
 
@@ -190,7 +190,7 @@ h1 {
 }
 
 .theme-dark .tab button:hover {
-  color: #ededed;
+  color: #ffffff;
   background-color: #252525;
 }
 
@@ -221,7 +221,7 @@ h1 {
 }
 
 .theme-dark .tab-interaction {
-  color: #ededed;
+  color: #ffffff;
 }
 
 .tab-interaction li {
@@ -474,7 +474,7 @@ body {
 }
 
 .theme-dark body {
-  color: #ededed;
+  color: #ffffff;
   background-color: #141414;
 }
 
@@ -488,7 +488,7 @@ main {
 }
 
 .theme-dark header {
-  color: #ededed;
+  color: #ffffff;
   background-color: #252525;
 }
 
@@ -539,7 +539,7 @@ h1 {
 }
 
 .theme-dark h1 {
-  color: #ededed;
+  color: #ffffff;
 }
 
 .theme-light hr {

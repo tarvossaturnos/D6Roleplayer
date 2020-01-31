@@ -22,8 +22,8 @@ namespace DiceRoller.Controllers
         }
 
         [HttpGet]
-        [Route("Roleplay")]
-        public RoleplayDiceRollResponse RoleplayRoll(int amount)
+        [Route("RollRoleplayDices")]
+        public RoleplayDiceRollResponse RollRoleplayDices(int amount)
         {
             return diceRollService.GetRoleplayDiceResult(amount);
         }

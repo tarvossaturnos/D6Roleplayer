@@ -10,6 +10,7 @@ using D6Roleplayer.Infrastructure.Models;
 using D6Roleplayer.Web.Services;
 using D6Roleplayer.Web.Hubs;
 using D6Roleplayer.Infrastructure.Clients;
+using D6Roleplayer.Infrastructure.Settings;
 
 namespace D6Roleplayer
 {
@@ -19,8 +20,6 @@ namespace D6Roleplayer
         {
             Configuration = configuration;
         }
-
-        string connectionString;
 
         public IConfiguration Configuration { get; }
 
@@ -34,7 +33,9 @@ namespace D6Roleplayer
             });
             
             services.AddDbContext<DatabaseContext>(options =>
-               options.UseSqlServer(connectionString));
+               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.Configure<DiceRollerSettings>(Configuration.GetSection("DiceRoller"));
 
             services.AddTransient<IDiceRollService, DiceRollService>();
             services.AddTransient<IRoleplaySessionService, RoleplaySessionService>();
@@ -50,14 +51,11 @@ namespace D6Roleplayer
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                connectionString = Configuration.GetConnectionString("Sql");
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
-
-                Configuration.GetConnectionString("Data:DefaultConnection:ConnectionString");
             }
 
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
