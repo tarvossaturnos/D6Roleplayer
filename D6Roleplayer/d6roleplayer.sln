@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D6Roleplayer.Infrastructure
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "D6Roleplayer.Web", "d6roleplayer.Web\D6Roleplayer.Web.csproj", "{95DD5DC8-6950-4F56-900B-6099735898DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular", "Angular\Angular.csproj", "{F46CCF67-948E-4C89-B8FD-6FAE21D6AB48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{95DD5DC8-6950-4F56-900B-6099735898DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95DD5DC8-6950-4F56-900B-6099735898DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95DD5DC8-6950-4F56-900B-6099735898DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F46CCF67-948E-4C89-B8FD-6FAE21D6AB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F46CCF67-948E-4C89-B8FD-6FAE21D6AB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F46CCF67-948E-4C89-B8FD-6FAE21D6AB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F46CCF67-948E-4C89-B8FD-6FAE21D6AB48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
