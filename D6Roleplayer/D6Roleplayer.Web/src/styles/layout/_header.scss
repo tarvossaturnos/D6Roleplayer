@@ -4,3 +4,11 @@
         background-color: themed('elementsBackgroundColor');
     }
 }
+
+.session-info {
+    @include themify($themes) {
+        color: themed('textColor');
+    }
+    margin-left: 30px;
+    margin-right: 30px;
+}

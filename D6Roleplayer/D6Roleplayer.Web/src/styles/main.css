@@ -492,6 +492,19 @@ main {
   background-color: #252525;
 }
 
+.session-info {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.theme-light .session-info {
+  color: #000000;
+}
+
+.theme-dark .session-info {
+  color: #ffffff;
+}
+
 footer {
   position: absolute;
   bottom: 0;
